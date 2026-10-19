@@ -49,13 +49,26 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 80vw;
+  padding: 1rem;
   aspect-ratio: 1.83;
   z-index: 1;
   grid-area: 1 / 1;
   transform: translateX(-1rem) translateY(5.7rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cardholder-name-and-expiry {
+  font-size: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-back {
+  font-size: 12px;
   background-image: url(../images/bg-card-back.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,4 +76,8 @@ body {
   aspect-ratio: 1.83;
   grid-area: 1 / 1;
   transform: translateX(2rem);
+  padding-right: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
