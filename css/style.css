@@ -31,3 +31,36 @@ body {
   font-weight: 500;
   font-size: 18px;
 }
+
+.card-preview {
+  background-image: url(../images/bg-main-mobile.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 35svh;
+  width: 100%;
+  margin-bottom: 20svh;
+  display: grid;
+  place-items: center;
+}
+
+.card-front {
+  background-image: url(../images/bg-card-front.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80vw;
+  aspect-ratio: 1.83;
+  z-index: 1;
+  grid-area: 1 / 1;
+  transform: translateX(-1rem) translateY(5.7rem);
+}
+
+.card-back {
+  background-image: url(../images/bg-card-back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80vw;
+  aspect-ratio: 1.83;
+  grid-area: 1 / 1;
+  transform: translateX(2rem);
+}
