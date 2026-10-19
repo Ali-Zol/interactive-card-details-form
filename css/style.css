@@ -56,8 +56,14 @@ body {
   transform: translateX(-1rem) translateY(5.7rem);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 1rem;
+  justify-content: space-between;
+}
+
+.card-icon {
+  background-image: url(../images/card-logo.svg);
+  background-repeat: no-repeat;
+  background-size: 3rem;
+  height: 25%;
 }
 
 .cardholder-name-and-expiry {
