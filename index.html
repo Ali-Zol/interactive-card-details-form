@@ -20,22 +20,27 @@
       </div>
     </div>
 
+    <form class="form-card-info">
+      <label class="label-cardholder-name" for="input-cardholder-name">Cardholder Name</label>
+      <input type="text" id="input-cardholder-name" name="cardholderName" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+      
+      <label class="label-card-number" for="input-card-number">Card Number</label>
+      <input type="text" inputmode="numeric" id="input-card-number" name="cardNumber" autocomplete="cc-number" placeholder="e.g. 1234 5678 9123 0000">
+      
+      <fieldset class="fieldset-card-expiry">
+        <legend>Exp. Date (MM/YY)</legend>
+        <label class="sr-only" for="input-card-expiry-mm">Month</label>
+        <input type="text" inputmode="numeric" id="input-card-expiry-mm" name="cardExpiryMonth" autocomplete="cc-exp-month" placeholder="MM">
 
-    Cardholder Name
-    e.g. Jane Appleseed
-
-    Card Number
-    e.g. 1234 5678 9123 0000
-
-    Exp. Date (MM/YY)
-    MM
-    YY
-
-    CVC
-    e.g. 123
-
-    Confirm
-
+        <label class="sr-only" for="input-card-expiry-yy">Year</label>
+        <input type="text" inputmode="numeric" id="input-card-expiry-yy" name="cardExpiryYear" autocomplete="cc-exp-year" placeholder="YY">
+      </fieldset>
+      
+      <label class="label-card-cvc" for="input-card-cvc">CVC</label>
+      <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" autocomplete="cc-csc" placeholder="e.g. 123">
+      
+      <button type="submit">Confirm</button>
+    </form>
     <!-- Completed state start -->
 
     Thank you!
