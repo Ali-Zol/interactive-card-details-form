@@ -87,3 +87,55 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
+
+.form-card-info {
+  padding: 1rem;
+  display: grid;
+  grid-template-areas: 
+    'label-cardholder-name label-cardholder-name'
+    'input-cardholder-name input-cardholder-name'
+    'label-card-number label-card-number'
+    'input-card-number input-card-number'
+    'fieldset-card-expiry card-cvc-container'
+    'confirm-button confirm-button';
+}
+
+.label-cardholder-name {
+  grid-area: label-cardholder-name;
+}
+
+#input-cardholder-name {
+  grid-area: input-cardholder-name;
+}
+
+.label-card-number {
+  grid-area: label-card-number;
+}
+
+#input-card-number {
+  grid-area: input-card-number;
+}
+
+.fieldset-card-expiry {
+  grid-area: fieldset-card-expiry;
+  border: 0;
+  display: flex;
+}
+
+.card-cvc-container {
+  grid-area: card-cvc-container;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card-info button {
+  grid-area: confirm-button;
+}
+
+.fieldset-card-expiry input {
+  width: 3rem;
+}
+
+.form-card-info input {
+  height: 2rem;
+}

@@ -43,8 +43,10 @@
         <input type="text" inputmode="numeric" id="input-card-expiry-yy" name="cardExpiryYear" autocomplete="cc-exp-year" placeholder="YY">
       </fieldset>
       
-      <label class="label-card-cvc" for="input-card-cvc">CVC</label>
-      <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" autocomplete="cc-csc" placeholder="e.g. 123">
+      <div class="card-cvc-container">
+        <label class="label-card-cvc" for="input-card-cvc">CVC</label>
+        <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" autocomplete="cc-csc" placeholder="e.g. 123">
+      </div>
       
       <button type="submit">Confirm</button>
     </form>
