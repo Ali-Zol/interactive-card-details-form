@@ -37,6 +37,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   min-height: 35svh;
   width: 100%;
   margin-bottom: 10svh;
@@ -67,14 +69,15 @@ body {
 }
 
 .cardholder-name-and-expiry {
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 400;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .card-back {
-  font-size: 12px;
+  font-size: 10px;
   background-image: url(../images/bg-card-back.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -89,7 +92,9 @@ body {
 }
 
 .form-card-info {
-  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 10px;
   padding: 1rem;
   display: grid;
   grid-template-areas: 
