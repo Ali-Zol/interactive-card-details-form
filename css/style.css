@@ -162,3 +162,25 @@ body {
   border: 1px solid var(--neutral-gray-400);
   padding: 0 0.5rem;
 }
+
+@media(min-width: 800px) {
+  main {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .card-preview {
+    background-image: url(../images/bg-main-desktop.png);
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .card-front {
+    display: none;
+  }
+  
+  .card-back {
+    display: none;
+  }
+}
