@@ -28,11 +28,15 @@
     <form class="form-card-info">
       <h2 class="sr-only">Card information form</h2>
 
-      <label class="label-cardholder-name" for="input-cardholder-name">Cardholder Name</label>
-      <input type="text" id="input-cardholder-name" name="cardholderName" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+      <div class="cardholder-name-container">
+        <label class="label-cardholder-name" for="input-cardholder-name">Cardholder Name</label>
+        <input type="text" id="input-cardholder-name" name="cardholderName" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+      </div>
       
-      <label class="label-card-number" for="input-card-number">Card Number</label>
-      <input type="text" inputmode="numeric" id="input-card-number" name="cardNumber" autocomplete="cc-number" placeholder="e.g. 1234 5678 9123 0000">
+      <div class="card-number-container">
+        <label class="label-card-number" for="input-card-number">Card Number</label>
+        <input type="text" inputmode="numeric" id="input-card-number" name="cardNumber" autocomplete="cc-number" placeholder="e.g. 1234 5678 9123 0000">
+      </div>
       
       <fieldset class="fieldset-card-expiry">
         <legend>Exp. Date (MM/YY)</legend>

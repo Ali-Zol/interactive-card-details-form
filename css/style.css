@@ -93,30 +93,26 @@ body {
   padding: 1rem;
   display: grid;
   grid-template-areas: 
-    'label-cardholder-name label-cardholder-name'
-    'input-cardholder-name input-cardholder-name'
-    'label-card-number label-card-number'
-    'input-card-number input-card-number'
+    'cardholder-name-container cardholder-name-container'
+    'card-number-container card-number-container'
     'fieldset-card-expiry card-cvc-container'
     'confirm-button confirm-button';
 
   row-gap: 1rem;
 }
 
-.label-cardholder-name {
-  grid-area: label-cardholder-name;
+.cardholder-name-container {
+  grid-area: cardholder-name-container;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-#input-cardholder-name {
-  grid-area: input-cardholder-name;
-}
-
-.label-card-number {
-  grid-area: label-card-number;
-}
-
-#input-card-number {
-  grid-area: input-card-number;
+.card-number-container {
+  grid-area: card-number-container;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .fieldset-card-expiry {
