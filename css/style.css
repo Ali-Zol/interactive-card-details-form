@@ -193,4 +193,26 @@ body {
     transform: translateX(11rem) translateY(8rem);
     padding-right: 2.5rem;
   }
+
+  .form-card-info {
+    max-width: 18rem;
+    padding: 0;
+    place-self: center;
+    column-gap: 0.5rem;
+  }
+  
+  .form-card-info button {
+    font-size: 14px;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 1rem;
+  }
+  
+  .form-card-info input {
+    width: 100%;
+  }
+
+  .fieldset-card-expiry input {
+    width: 4rem;
+  }
 }
