@@ -39,7 +39,7 @@ body {
   color: white;
   min-height: 35svh;
   width: 100%;
-  margin-bottom: 20svh;
+  margin-bottom: 10svh;
   display: grid;
   place-items: center;
 }
@@ -89,6 +89,7 @@ body {
 }
 
 .form-card-info {
+  font-size: 12px;
   padding: 1rem;
   display: grid;
   grid-template-areas: 
@@ -98,6 +99,8 @@ body {
     'input-card-number input-card-number'
     'fieldset-card-expiry card-cvc-container'
     'confirm-button confirm-button';
+
+  row-gap: 1rem;
 }
 
 .label-cardholder-name {
@@ -120,16 +123,31 @@ body {
   grid-area: fieldset-card-expiry;
   border: 0;
   display: flex;
+  gap: 0.5rem;
+}
+
+.fieldset-card-expiry legend {
+  margin-bottom: 0.5rem;
 }
 
 .card-cvc-container {
   grid-area: card-cvc-container;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .form-card-info button {
   grid-area: confirm-button;
+  background-color: var(--neutral-purple);
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 16px;
+  height: 3rem;
+  border: none;
+  border-radius: 8px;
 }
 
 .fieldset-card-expiry input {
@@ -137,5 +155,9 @@ body {
 }
 
 .form-card-info input {
+  font-family: inherit;
   height: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-gray-400);
+  padding: 0 0.5rem;
 }
