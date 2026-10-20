@@ -177,10 +177,20 @@ body {
   }
 
   .card-front {
-    display: none;
+    font-size: 20px;
+    width: 30vw;
+    padding: 1.2rem;
+    transform: translateX(7rem) translateY(-5rem);
   }
-  
+
+  .card-icon {
+    background-size: 4rem;
+    height: 35%;
+  }
+
   .card-back {
-    display: none;
+    width: 30vw;
+    transform: translateX(11rem) translateY(8rem);
+    padding-right: 2.5rem;
   }
 }
