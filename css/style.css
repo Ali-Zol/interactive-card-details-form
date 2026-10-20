@@ -87,3 +87,62 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
+
+.form-card-info {
+  font-size: 12px;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-card-info input {
+  font-family: 'Space Grotesk', sans-serif;
+  height: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--neutral-gray-400);
+  padding-left: 10px;
+}
+
+.card-expiry-and-cvc-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-cvc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fieldset-card-expiry {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fieldset-card-expiry legend {
+  float: left;
+  width: 100%;
+}
+
+.card-expiry-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fieldset-card-expiry input {
+  width: 3rem;
+}
+
+.form-card-info button {
+  background-color: var(--neutral-purple);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  height: 3rem;
+  border: none;
+  border-radius: 8px;
+}

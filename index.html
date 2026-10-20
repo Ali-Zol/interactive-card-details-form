@@ -34,17 +34,23 @@
       <label class="label-card-number" for="input-card-number">CARD NUMBER</label>
       <input type="text" inputmode="numeric" id="input-card-number" name="cardNumber" autocomplete="cc-number" placeholder="e.g. 1234 5678 9123 0000">
       
-      <fieldset class="fieldset-card-expiry">
-        <legend>EXP. DATE (MM/YY)</legend>
-        <label class="sr-only" for="input-card-expiry-mm">Month</label>
-        <input type="text" inputmode="numeric" id="input-card-expiry-mm" name="cardExpiryMonth" autocomplete="cc-exp-month" placeholder="MM">
-
-        <label class="sr-only" for="input-card-expiry-yy">Year</label>
-        <input type="text" inputmode="numeric" id="input-card-expiry-yy" name="cardExpiryYear" autocomplete="cc-exp-year" placeholder="YY">
-      </fieldset>
-      
-      <label class="label-card-cvc" for="input-card-cvc">CVC</label>
-      <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" autocomplete="cc-csc" placeholder="e.g. 123">
+      <div class="card-expiry-and-cvc-container">
+        <fieldset class="fieldset-card-expiry">
+          <legend>EXP. DATE (MM/YY)</legend>
+          <div class="card-expiry-container">
+            <label class="sr-only" for="input-card-expiry-mm">Month</label>
+            <input type="text" inputmode="numeric" id="input-card-expiry-mm" name="cardExpiryMonth" autocomplete="cc-exp-month" placeholder="MM">
+            
+            <label class="sr-only" for="input-card-expiry-yy">Year</label>
+            <input type="text" inputmode="numeric" id="input-card-expiry-yy" name="cardExpiryYear" autocomplete="cc-exp-year" placeholder="YY">
+          </div>
+        </fieldset>
+        
+        <div class="card-cvc-container">
+          <label class="label-card-cvc" for="input-card-cvc">CVC</label>
+          <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" autocomplete="cc-csc" placeholder="e.g. 123">
+        </div>
+      </div>
       
       <button type="submit">Confirm</button>
     </form>
