@@ -25,6 +25,14 @@ class FormCardInfo {
     this.cardNumberInput.addEventListener('input', (e) => {
       this.updateCardNumberPreview(e.target.value.trim());
     });
+
+    this.expiryMonthInput.addEventListener('input', () => {
+      this.updateExpiryDatePreview();
+    })
+
+    this.expiryYearInput.addEventListener('input', () => {
+      this.updateExpiryDatePreview();
+    })
   }
   
   updateCardholderNamePreview(cardholderName) {
@@ -33,6 +41,14 @@ class FormCardInfo {
 
   updateCardNumberPreview(cardNumber) {
     this.cardPreview.cardNumberField.textContent = cardNumber !== '' ? cardNumber : '0000 0000 0000 0000';
+  }
+
+  updateExpiryDatePreview() {
+    let year = this.expiryYearInput.value;
+    let month = this.expiryMonthInput.value;
+    year = year !== '' ? year : '00';
+    month = month !== '' ? month : '00';
+    this.cardPreview.expiryDateField.textContent = `${month}/${year}`;
   }
 }
 
