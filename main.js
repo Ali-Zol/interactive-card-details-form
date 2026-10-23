@@ -33,6 +33,10 @@ class FormCardInfo {
     this.expiryYearInput.addEventListener('input', () => {
       this.updateExpiryDatePreview();
     })
+
+    this.cvcInput.addEventListener('input', (e) => {
+      this.updateCardCvcPreview(e.target.value.trim());
+    })
   }
   
   updateCardholderNamePreview(cardholderName) {
@@ -49,6 +53,10 @@ class FormCardInfo {
     year = year !== '' ? year : '00';
     month = month !== '' ? month : '00';
     this.cardPreview.expiryDateField.textContent = `${month}/${year}`;
+  }
+
+  updateCardCvcPreview(cvc) {
+    this.cardPreview.cvcField.textContent = cvc !== '' ? cvc : '000';
   }
 }
 
