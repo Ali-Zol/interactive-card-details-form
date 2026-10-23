@@ -21,10 +21,18 @@ class FormCardInfo {
     this.cardholderNameInput.addEventListener('input', (e) => {
       this.updateCardholderNamePreview(e.target.value.trim());
     });
+
+    this.cardNumberInput.addEventListener('input', (e) => {
+      this.updateCardNumberPreview(e.target.value.trim());
+    });
   }
   
   updateCardholderNamePreview(cardholderName) {
     this.cardPreview.cardholderNameField.textContent = cardholderName !== '' ? cardholderName : 'Jane Appleseed';
+  }
+
+  updateCardNumberPreview(cardNumber) {
+    this.cardPreview.cardNumberField.textContent = cardNumber !== '' ? cardNumber : '0000 0000 0000 0000';
   }
 }
 
