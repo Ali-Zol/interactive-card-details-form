@@ -16,4 +16,19 @@ class FormCardInfo {
     this.expiryYearInput = document.querySelector('#input-card-expiry-yy');
     this.cvcInput = document.querySelector('#input-card-cvc');
   }
+  
+  init() {
+    this.cardholderNameInput.addEventListener('input', (e) => {
+      this.updateCardholderNamePreview(e.target.value.trim());
+    });
+  }
+  
+  updateCardholderNamePreview(cardholderName) {
+    this.cardPreview.cardholderNameField.textContent = cardholderName !== '' ? cardholderName : 'Jane Appleseed';
+  }
 }
+
+const cardPreview = new CardPreview();
+const formCardInfo = new FormCardInfo(cardPreview);
+
+formCardInfo.init();
