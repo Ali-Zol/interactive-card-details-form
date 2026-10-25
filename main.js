@@ -23,7 +23,7 @@ class FormCardInfo {
     });
 
     this.cardNumberInput.addEventListener('input', (e) => {
-      this.updateCardNumberPreview(e.target.value.trim());
+      this.updateCardNumberPreview(e.target.value);
     });
 
     this.expiryMonthInput.addEventListener('input', () => {
@@ -44,7 +44,12 @@ class FormCardInfo {
   }
 
   updateCardNumberPreview(cardNumber) {
-    this.cardPreview.cardNumberField.textContent = cardNumber !== '' ? cardNumber : '0000 0000 0000 0000';
+    const cleanDigits = cardNumber.replace(/\D/g, '').substring(0, 16);
+
+    const formattedNumber = cleanDigits ? cleanDigits.match(/.{1,4}/g).join(' ') : '0000 0000 0000 0000';
+
+    this.cardNumberInput.value = cleanDigits ? formattedNumber : '';
+    this.cardPreview.cardNumberField.textContent = formattedNumber;
   }
 
   updateExpiryDatePreview() {
