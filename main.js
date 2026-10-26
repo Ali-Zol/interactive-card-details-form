@@ -19,7 +19,7 @@ class FormCardInfo {
   
   init() {
     this.cardholderNameInput.addEventListener('input', (e) => {
-      this.updateCardholderNamePreview(e.target.value.trim());
+      this.updateCardholderNamePreview(e.target.value);
     });
 
     this.cardNumberInput.addEventListener('input', (e) => {
@@ -40,7 +40,10 @@ class FormCardInfo {
   }
   
   updateCardholderNamePreview(cardholderName) {
-    this.cardPreview.cardholderNameField.textContent = cardholderName !== '' ? cardholderName : 'Jane Appleseed';
+    const cleanString = cardholderName.replace(/[^a-zA-Z\s]/g, '').replace(/\s+/g, ' ');
+
+    this.cardholderNameInput.value = cleanString;
+    this.cardPreview.cardholderNameField.textContent = cleanString.trim() ? cleanString : 'Jane Appleseed';
   }
 
   updateCardNumberPreview(cardNumber) {
