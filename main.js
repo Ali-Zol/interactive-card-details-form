@@ -34,6 +34,10 @@ class FormCardInfo {
       this.updateCardNumberPreview(e.target.value);
     });
 
+    this.cardNumberInput.addEventListener('blur', (e) => {
+      this.validateCardNumber(e.target.value);
+    })
+
     this.expiryMonthInput.addEventListener('input', () => {
       this.updateExpiryDatePreview();
     })
@@ -74,6 +78,24 @@ class FormCardInfo {
 
     this.cardNumberInput.value = cleanDigits ? formattedNumber : '';
     this.cardPreview.cardNumberField.textContent = formattedNumber;
+  }
+
+  validateCardNumber(cardNumber) {
+    if(cardNumber === '')
+      this.cardNumberError.textContent = "Can't be blank";
+    
+    else if(cardNumber.replace(/\s/g, '').length !== 16)
+      this.cardNumberError.textContent = "Must be 16 digits";
+
+    else {
+      this.cardNumberError.textContent = "";
+      this.cardNumberError.hidden = true;
+      this.cardNumberInput.classList.remove('error-input');
+      return;
+    }
+
+    this.cardNumberError.hidden = false;
+    this.cardNumberInput.classList.add('error-input');
   }
 
   updateExpiryDatePreview() {
