@@ -21,7 +21,8 @@ class FormCardInfo {
     this.cardNumberError = document.querySelector('#error-card-number');
     this.expiryDateError = document.querySelector('#error-card-expiry');
     this.cvcError = document.querySelector('#error-card-cvc');
-    this.continueBtn = document.querySelector('.completed-state button')
+    this.confirmBtn = document.querySelector('.form-card-info button');
+    this.continueBtn = document.querySelector('.completed-state button');
   }
   
   init() {
@@ -103,6 +104,9 @@ class FormCardInfo {
 
     this.cardNumberInput.value = cleanDigits ? formattedNumber : '';
     this.cardPreview.cardNumberField.textContent = formattedNumber;
+
+    if(cleanDigits.length === 16 && document.activeElement === this.cardNumberInput)
+      this.expiryMonthInput.focus();
   }
 
   validateCardNumber(cardNumber) {
@@ -138,6 +142,13 @@ class FormCardInfo {
     
     this.expiryYearInput.value = year;
     this.expiryMonthInput.value = month;
+
+    if(month.length === 2 && document.activeElement === this.expiryMonthInput)
+      this.expiryYearInput.focus();
+    
+    if(year.length === 2 && document.activeElement === this.expiryYearInput)
+      this.cvcInput.focus();
+
 
     year = year.padStart(2, '0');
     month = month.padStart(2, '0');
@@ -177,6 +188,9 @@ class FormCardInfo {
 
     this.cvcInput.value = cleanDigits;
     this.cardPreview.cvcField.textContent = cleanDigits ? cleanDigits : '000';
+
+    if(cleanDigits.length === 3 && document.activeElement === this.cvcInput)
+      this.confirmBtn.focus();
   }
 
   validateCardCvc(cvc) {
@@ -210,11 +224,27 @@ class FormCardInfo {
       this.form.hidden = true;
       this.completedState.hidden = false;
     }
+    else if(!isCardholderNameValid)
+      this.cardholderNameInput.focus();
+
+    else if(!isCardNumberValid)
+      this.cardNumberInput.focus();
+
+    else if(!isExpiryDateValid) {
+      if(this.expiryMonthInput.classList.contains('error-input'))
+        this.expiryMonthInput.focus();
+
+      else
+        this.expiryYearInput.focus();
+    }
+    else {
+      this.cvcInput.focus();
+    }
   }
 
   resetForm() {
     this.form.reset();
-    
+
     this.updateCardholderNamePreview('');
     this.updateCardNumberPreview('');
     this.updateExpiryDatePreview();
