@@ -209,15 +209,17 @@ class FormCardInfo {
     if(isCardholderNameValid && isCardNumberValid && isExpiryDateValid && isCardCvcValid) {
       this.form.hidden = true;
       this.completedState.hidden = false;
-      this.cardPreview.cardholderNameField.textContent = 'Jane Appleseed';
-      this.cardPreview.cardNumberField.textContent = '0000 0000 0000 0000';
-      this.cardPreview.expiryDateField.textContent = '00/00';
-      this.cardPreview.cvcField.textContent = '000';
     }
   }
 
   resetForm() {
     this.form.reset();
+    
+    this.updateCardholderNamePreview('');
+    this.updateCardNumberPreview('');
+    this.updateExpiryDatePreview();
+    this.updateCardCvcPreview('');
+
     this.form.hidden = false;
     this.completedState.hidden = true;
   }
