@@ -15,12 +15,20 @@ class FormCardInfo {
     this.expiryMonthInput = document.querySelector('#input-card-expiry-mm');
     this.expiryYearInput = document.querySelector('#input-card-expiry-yy');
     this.cvcInput = document.querySelector('#input-card-cvc');
+    this.cardholderNameError = document.querySelector('#error-cardholder-name');
+    this.cardNumberError = document.querySelector('#error-card-number');
+    this.expiryDateError = document.querySelector('#error-card-expiry');
+    this.cvcError = document.querySelector('#error-card-cvc');
   }
   
   init() {
     this.cardholderNameInput.addEventListener('input', (e) => {
       this.updateCardholderNamePreview(e.target.value);
     });
+
+    this.cardholderNameInput.addEventListener('blur', (e) => {
+      this.validateCardholderName(e.target.value);
+    })
 
     this.cardNumberInput.addEventListener('input', (e) => {
       this.updateCardNumberPreview(e.target.value);
@@ -44,6 +52,19 @@ class FormCardInfo {
 
     this.cardholderNameInput.value = cleanString;
     this.cardPreview.cardholderNameField.textContent = cleanString.trim() ? cleanString : 'Jane Appleseed';
+  }
+
+  validateCardholderName(cardholderName) {
+    if(cardholderName.trim() === '') {
+      this.cardholderNameError.textContent = "Can't be blank";
+      this.cardholderNameError.hidden = false;
+      this.cardholderNameInput.classList.add('error-input');
+    }
+    else {
+      this.cardholderNameError.textContent = "";
+      this.cardholderNameError.hidden = true;
+      this.cardholderNameInput.classList.remove('error-input');
+    }
   }
 
   updateCardNumberPreview(cardNumber) {
