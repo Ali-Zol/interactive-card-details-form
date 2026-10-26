@@ -21,6 +21,7 @@ class FormCardInfo {
     this.cardNumberError = document.querySelector('#error-card-number');
     this.expiryDateError = document.querySelector('#error-card-expiry');
     this.cvcError = document.querySelector('#error-card-cvc');
+    this.continueBtn = document.querySelector('.completed-state button')
   }
   
   init() {
@@ -66,6 +67,10 @@ class FormCardInfo {
 
     this.cvcInput.addEventListener('blur', (e) => {
       this.validateCardCvc(e.target.value);
+    })
+
+    this.continueBtn.addEventListener('click', () => {
+      this.resetForm();
     })
   }
   
@@ -209,6 +214,12 @@ class FormCardInfo {
       this.cardPreview.expiryDateField.textContent = '00/00';
       this.cardPreview.cvcField.textContent = '000';
     }
+  }
+
+  resetForm() {
+    this.form.reset();
+    this.form.hidden = false;
+    this.completedState.hidden = true;
   }
 }
 
