@@ -184,6 +184,41 @@ body {
   border-color: var(--error-color) !important;
 }
 
+.completed-state {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-self: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  margin-top: 6rem;
+}
+
+.completed-state h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+}
+
+.completed-state p {
+  color: var(--neutral-gray-400);
+}
+
+.completed-state button {
+  background-color: var(--neutral-purple);
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 16px;
+  height: 3rem;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
 
 @media(min-width: 800px) {
   main {
@@ -236,5 +271,23 @@ body {
 
   .fieldset-card-expiry input {
     width: 4rem;
+  }
+
+  .completed-state {
+    place-self: center;
+    width: 100%;
+    max-width: 20rem;
+    font-size: small;
+    margin-top: 0;
+  }
+
+  .completed-state img {
+    height: 4rem;
+  }
+
+  .completed-state button {
+    font-size: 14px;
+    height: 2.5rem;
+    margin-top: 1rem;
   }
 }
