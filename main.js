@@ -35,7 +35,7 @@ class FormCardInfo {
     })
 
     this.cvcInput.addEventListener('input', (e) => {
-      this.updateCardCvcPreview(e.target.value.trim());
+      this.updateCardCvcPreview(e.target.value);
     })
   }
   
@@ -74,7 +74,10 @@ class FormCardInfo {
   }
 
   updateCardCvcPreview(cvc) {
-    this.cardPreview.cvcField.textContent = cvc !== '' ? cvc : '000';
+    const cleanDigits = cvc.replace(/\D/g, '').substring(0, 3);
+
+    this.cvcInput.value = cleanDigits;
+    this.cardPreview.cvcField.textContent = cleanDigits ? cleanDigits : '000';
   }
 }
 
