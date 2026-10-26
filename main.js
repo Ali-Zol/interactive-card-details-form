@@ -42,8 +42,16 @@ class FormCardInfo {
       this.updateExpiryDatePreview();
     })
 
+    this.expiryMonthInput.addEventListener('blur', () => {
+      this.validateExpiryDate();
+    })
+
     this.expiryYearInput.addEventListener('input', () => {
       this.updateExpiryDatePreview();
+    })
+
+    this.expiryYearInput.addEventListener('blur', () => {
+      this.validateExpiryDate();
     })
 
     this.cvcInput.addEventListener('input', (e) => {
@@ -117,6 +125,30 @@ class FormCardInfo {
     month = month.padStart(2, '0');
 
     this.cardPreview.expiryDateField.textContent = `${month}/${year}`;
+  }
+
+  validateExpiryDate() {
+    const year = this.expiryYearInput.value;
+    const month = this.expiryMonthInput.value;
+
+    if(parseInt(month) < 1 || 12 < parseInt(month)) {
+      this.expiryDateError.textContent = "Invalid date";
+      this.expiryDateError.hidden = false;
+      this.expiryMonthInput.classList.add('error-input');
+      this.expiryYearInput.classList.toggle('error-input', year === '');
+    }
+    else if(year === '' || month === '') {
+      this.expiryDateError.textContent = "Can't be blank";
+      this.expiryDateError.hidden = false;
+      this.expiryYearInput.classList.toggle('error-input', year === '');
+      this.expiryMonthInput.classList.toggle('error-input', month === '');      
+    }
+    else {
+      this.expiryDateError.textContent = "";
+      this.expiryDateError.hidden = true;
+      this.expiryYearInput.classList.remove('error-input');
+      this.expiryMonthInput.classList.remove('error-input');
+    }
   }
 
   updateCardCvcPreview(cvc) {
