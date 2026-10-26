@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 :root {
   --gradient-start: hsl(249, 99%, 64%);
   --gradient-end: hsl(278, 94%, 30%);

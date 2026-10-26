@@ -9,7 +9,9 @@ class CardPreview {
 
 class FormCardInfo {
   constructor(cardPreview) {
+    this.form = document.querySelector('.form-card-info');
     this.cardPreview = cardPreview;
+    this.completedState = document.querySelector('.completed-state');
     this.cardholderNameInput = document.querySelector('#input-cardholder-name');
     this.cardNumberInput = document.querySelector('#input-card-number');
     this.expiryMonthInput = document.querySelector('#input-card-expiry-mm');
@@ -22,6 +24,10 @@ class FormCardInfo {
   }
   
   init() {
+    this.form.addEventListener('submit', (e) => {
+      this.finalValidation(e);
+    });
+
     this.cardholderNameInput.addEventListener('input', (e) => {
       this.updateCardholderNamePreview(e.target.value);
     });
@@ -75,11 +81,13 @@ class FormCardInfo {
       this.cardholderNameError.textContent = "Can't be blank";
       this.cardholderNameError.hidden = false;
       this.cardholderNameInput.classList.add('error-input');
+      return false;
     }
     else {
       this.cardholderNameError.textContent = "";
       this.cardholderNameError.hidden = true;
       this.cardholderNameInput.classList.remove('error-input');
+      return true;
     }
   }
 
@@ -103,11 +111,12 @@ class FormCardInfo {
       this.cardNumberError.textContent = "";
       this.cardNumberError.hidden = true;
       this.cardNumberInput.classList.remove('error-input');
-      return;
+      return true;
     }
 
     this.cardNumberError.hidden = false;
     this.cardNumberInput.classList.add('error-input');
+    return false;
   }
 
   updateExpiryDatePreview() {
@@ -140,18 +149,21 @@ class FormCardInfo {
       this.expiryDateError.hidden = false;
       this.expiryMonthInput.classList.add('error-input');
       this.expiryYearInput.classList.toggle('error-input', year === '');
+      return false;
     }
     else if(year === '' || month === '') {
       this.expiryDateError.textContent = "Can't be blank";
       this.expiryDateError.hidden = false;
       this.expiryYearInput.classList.toggle('error-input', year === '');
       this.expiryMonthInput.classList.toggle('error-input', month === '');      
+      return false;
     }
     else {
       this.expiryDateError.textContent = "";
       this.expiryDateError.hidden = true;
       this.expiryYearInput.classList.remove('error-input');
       this.expiryMonthInput.classList.remove('error-input');
+      return true;
     }
   }
 
@@ -168,16 +180,35 @@ class FormCardInfo {
     
     else if(cvc.length !== 3)
       this.cvcError.textContent = 'Must be 3 digits';
-    
+
     else {
       this.cvcError.textContent = '';
       this.cvcError.hidden = true;
       this.cvcInput.classList.remove('error-input');
-      return;
+      return true;
     }
 
     this.cvcError.hidden = false;
     this.cvcInput.classList.add('error-input');
+    return false;
+  }
+
+  finalValidation(e) {
+    e.preventDefault();
+
+    const isCardholderNameValid = this.validateCardholderName(this.cardholderNameInput.value);
+    const isCardNumberValid = this.validateCardNumber(this.cardNumberInput.value);
+    const isExpiryDateValid = this.validateExpiryDate();
+    const isCardCvcValid = this.validateCardCvc(this.cvcInput.value);
+
+    if(isCardholderNameValid && isCardNumberValid && isExpiryDateValid && isCardCvcValid) {
+      this.form.hidden = true;
+      this.completedState.hidden = false;
+      this.cardPreview.cardholderNameField.textContent = 'Jane Appleseed';
+      this.cardPreview.cardNumberField.textContent = '0000 0000 0000 0000';
+      this.cardPreview.expiryDateField.textContent = '00/00';
+      this.cardPreview.cvcField.textContent = '000';
+    }
   }
 }
 
