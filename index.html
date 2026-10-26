@@ -30,26 +30,30 @@
 
       <div class="cardholder-name-container">
         <label class="label-cardholder-name" for="input-cardholder-name">Cardholder Name</label>
-        <input type="text" id="input-cardholder-name" name="cardholderName" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+        <input type="text" id="input-cardholder-name" name="cardholderName" aria-describedby="error-cardholder-name" autocomplete="cc-name" placeholder="e.g. Jane Appleseed">
+        <span id="error-cardholder-name" role="alert" hidden></span>
       </div>
       
       <div class="card-number-container">
         <label class="label-card-number" for="input-card-number">Card Number</label>
-        <input type="text" inputmode="numeric" id="input-card-number" name="cardNumber" autocomplete="cc-number" placeholder="e.g. 1234 5678 9123 0000">
+        <input type="text" inputmode="numeric" id="input-card-number" name="cardNumber" aria-describedby="error-card-number" autocomplete="cc-number" placeholder="e.g. 1234 5678 9123 0000">
+        <span id="error-card-number" role="alert" hidden></span>
       </div>
       
       <fieldset class="fieldset-card-expiry">
         <legend>Exp. Date (MM/YY)</legend>
         <label class="sr-only" for="input-card-expiry-mm">Month</label>
-        <input type="text" inputmode="numeric" id="input-card-expiry-mm" name="cardExpiryMonth" autocomplete="cc-exp-month" placeholder="MM">
+        <input type="text" inputmode="numeric" id="input-card-expiry-mm" name="cardExpiryMonth" aria-describedby="error-card-expiry" autocomplete="cc-exp-month" placeholder="MM">
 
         <label class="sr-only" for="input-card-expiry-yy">Year</label>
-        <input type="text" inputmode="numeric" id="input-card-expiry-yy" name="cardExpiryYear" autocomplete="cc-exp-year" placeholder="YY">
+        <input type="text" inputmode="numeric" id="input-card-expiry-yy" name="cardExpiryYear" aria-describedby="error-card-expiry" autocomplete="cc-exp-year" placeholder="YY">
       </fieldset>
+      <span id="error-card-expiry" role="alert" hidden></span>
       
       <div class="card-cvc-container">
         <label class="label-card-cvc" for="input-card-cvc">CVC</label>
-        <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" autocomplete="cc-csc" placeholder="e.g. 123">
+        <input type="text" inputmode="numeric" id="input-card-cvc" name="cardCvc" aria-describedby="error-card-cvc" autocomplete="cc-csc" placeholder="e.g. 123">
+        <span id="error-card-cvc" role="alert" hidden></span>
       </div>
       
       <button type="submit">Confirm</button>
