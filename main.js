@@ -55,8 +55,21 @@ class FormCardInfo {
   updateExpiryDatePreview() {
     let year = this.expiryYearInput.value;
     let month = this.expiryMonthInput.value;
-    year = year !== '' ? year : '00';
-    month = month !== '' ? month : '00';
+
+    year = year.replace(/\D/g, '').substring(0, 2);
+    month = month.replace(/\D/g, '').substring(0, 2);
+
+    const monthNumber = parseInt(month);
+    
+    if(month === '00' || monthNumber > 12)
+      month = month.substring(0, 1);
+    
+    this.expiryYearInput.value = year;
+    this.expiryMonthInput.value = month;
+
+    year = year.padStart(2, '0');
+    month = month.padStart(2, '0');
+
     this.cardPreview.expiryDateField.textContent = `${month}/${year}`;
   }
 
