@@ -101,7 +101,7 @@ body {
   grid-template-areas: 
     'cardholder-name-container cardholder-name-container'
     'card-number-container card-number-container'
-    'fieldset-card-expiry card-cvc-container'
+    'card-expiry-container card-cvc-container'
     'confirm-button confirm-button';
 
   row-gap: 1rem;
@@ -121,8 +121,14 @@ body {
   gap: 0.5rem;
 }
 
+.card-expiry-container {
+  grid-area: card-expiry-container;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .fieldset-card-expiry {
-  grid-area: fieldset-card-expiry;
   border: 0;
   display: flex;
   gap: 0.5rem;
@@ -163,6 +169,17 @@ body {
   border: 1px solid var(--neutral-gray-400);
   padding: 0 0.5rem;
 }
+
+.error-msg {
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--error-color);
+}
+
+.error-input {
+  border-color: var(--error-color) !important;
+}
+
 
 @media(min-width: 800px) {
   main {
