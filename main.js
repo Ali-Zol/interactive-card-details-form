@@ -57,6 +57,10 @@ class FormCardInfo {
     this.cvcInput.addEventListener('input', (e) => {
       this.updateCardCvcPreview(e.target.value);
     })
+
+    this.cvcInput.addEventListener('blur', (e) => {
+      this.validateCardCvc(e.target.value);
+    })
   }
   
   updateCardholderNamePreview(cardholderName) {
@@ -156,6 +160,24 @@ class FormCardInfo {
 
     this.cvcInput.value = cleanDigits;
     this.cardPreview.cvcField.textContent = cleanDigits ? cleanDigits : '000';
+  }
+
+  validateCardCvc(cvc) {
+    if(cvc === '')
+      this.cvcError.textContent = "Can't be blank";
+    
+    else if(cvc.length !== 3)
+      this.cvcError.textContent = 'Must be 3 digits';
+    
+    else {
+      this.cvcError.textContent = '';
+      this.cvcError.hidden = true;
+      this.cvcInput.classList.remove('error-input');
+      return;
+    }
+
+    this.cvcError.hidden = false;
+    this.cvcInput.classList.add('error-input');
   }
 }
 
