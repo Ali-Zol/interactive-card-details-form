@@ -159,6 +159,11 @@ body {
   border-radius: 8px;
 }
 
+.btn:focus-visible {
+  outline: medium solid var(--gradient-start);
+  outline-offset: 2px;
+}
+
 .form-card-info .btn {
   grid-area: confirm-button;
 }
@@ -173,6 +178,11 @@ body {
   border-radius: 8px;
   border: 1px solid var(--neutral-gray-400);
   padding: 0 0.5rem;
+}
+
+.form-card-info input:focus-visible {
+  outline: thin solid var(--gradient-end);
+  outline-offset: 2px
 }
 
 .error-msg {
