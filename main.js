@@ -159,6 +159,9 @@ class FormCardInfo {
   validateExpiryDate() {
     const year = this.expiryYearInput.value;
     const month = this.expiryMonthInput.value;
+    const date = new Date();
+
+    const inputYear  = parseInt(`20${year}`);
 
     if(parseInt(month) < 1 || 12 < parseInt(month)) {
       this.expiryDateError.textContent = "Invalid date";
@@ -172,6 +175,13 @@ class FormCardInfo {
       this.expiryDateError.hidden = false;
       this.expiryYearInput.classList.toggle('error-input', year === '');
       this.expiryMonthInput.classList.toggle('error-input', month === '');      
+      return false;
+    }
+    else if(inputYear  < date.getFullYear() || (inputYear  === date.getFullYear() && parseInt(month) < date.getMonth() + 1)) {
+      this.expiryDateError.textContent = "Card has expired";
+      this.expiryDateError.hidden = false;
+      this.expiryMonthInput.classList.add('error-input');
+      this.expiryYearInput.classList.add('error-input');
       return false;
     }
     else {
