@@ -90,9 +90,10 @@ This project was a major step forward in writing clean, maintainable, and access
     - Used `aria-describedby` to link error messages to their inputs.
     - Added `role="alert"` so screen readers announce errors immediately.
     - Implemented **Focus Management**: Auto-advancing focus from Month to Year to CVC, and focusing the first invalid input when the form is submitted.
-4. **Managing the `hidden` attribute in CSS**: I learned that if an element has `display: grid` or `display: flex` in CSS, the HTML `hidden` attribute won't work as expected. The solution was to add `[hidden] { display: none !important; }` globally.
+4. **Managing the `hidden` attribute in CSS**: I learned that if an element has `display: grid` or `display: flex` in CSS, the HTML `hidden` attribute won't work because the class selector overrides it. While I initially used `!important` to fix this, I later refactored it to respect the CSS cascade. I solved it by using a more specific selector (like `form[hidden]` or `section[hidden]`).
 5. **Advanced CSS Layouts**: Mastering `display: grid` with `grid-template-areas` made the form layout incredibly clean. I also learned how to stack elements (card front and back) in the same grid cell using `grid-area: 1 / 1` instead of `position: absolute`.
 6. **DRY Principle (Don't Repeat Yourself)**: I refactored my CSS to extract shared button styles into a `.btn` class, and moved repeated card reset logic into a reusable `resetForm()` method.
+7. **Internationalization (i18n) with Logical Properties**: I learned the importance of using CSS logical properties (e.g., `margin-block-end` and `padding-inline-end`) instead of physical ones (e.g., `margin-bottom`, `padding-right`, and `left`). This ensures that the layout automatically adapts to Right-to-Left (RTL) languages like Persian or Arabic without requiring extra CSS, making the UI globally accessible and future-proof.
 
 ### 🤝 AI Collaboration
 
