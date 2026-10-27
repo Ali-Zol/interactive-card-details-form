@@ -50,17 +50,20 @@ body {
   place-items: center;
 }
 
-.card-front {
-  background-image: url(../images/bg-card-front.png);
+.card {
   background-repeat: no-repeat;
   background-size: cover;
   width: 80vw;
-  padding: 1rem;
   aspect-ratio: 1.83;
-  z-index: 1;
   grid-area: 1 / 1;
-  transform: translateX(-1rem) translateY(5.7rem);
   display: flex;
+}
+
+.card-front {
+  background-image: url(../images/bg-card-front.png);
+  padding: 1rem;
+  z-index: 1;
+  transform: translateX(-1rem) translateY(5.7rem);
   flex-direction: column;
   justify-content: space-between;
 }
@@ -83,14 +86,8 @@ body {
 .card-back {
   font-size: 10px;
   background-image: url(../images/bg-card-back.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 80vw;
-  aspect-ratio: 1.83;
-  grid-area: 1 / 1;
-  transform: translateX(2rem);
   padding-right: 2rem;
-  display: flex;
+  transform: translateX(2rem);
   justify-content: flex-end;
   align-items: center;
 }
@@ -224,9 +221,12 @@ body {
     margin-bottom: 0;
   }
 
+  .card {
+    width: 30vw;
+  }
+
   .card-front {
     font-size: 20px;
-    width: 30vw;
     padding: 1.2rem;
     transform: translateX(7rem) translateY(-5rem);
   }
@@ -237,9 +237,8 @@ body {
   }
 
   .card-back {
-    width: 30vw;
-    transform: translateX(11rem) translateY(8rem);
     padding-right: 2.5rem;
+    transform: translateX(11rem) translateY(8rem);
   }
 
   .form-card-info {
