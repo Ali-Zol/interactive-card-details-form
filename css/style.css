@@ -53,7 +53,7 @@ body {
 .card {
   background-repeat: no-repeat;
   background-size: cover;
-  width: 80vw;
+  width: clamp(17rem, 80vw, 19rem);
   aspect-ratio: 1.83;
   grid-area: 1 / 1;
   display: flex;
@@ -222,7 +222,7 @@ body {
   }
 
   .card {
-    width: 30vw;
+    width: clamp(19rem, 30vw, 22rem)
   }
 
   .card-front {
