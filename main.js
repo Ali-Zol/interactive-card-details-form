@@ -233,6 +233,8 @@ class FormCardInfo {
     if(isCardholderNameValid && isCardNumberValid && isExpiryDateValid && isCardCvcValid) {
       this.form.hidden = true;
       this.completedState.hidden = false;
+      this.completedState.querySelector('h2').setAttribute('tabindex', '-1');
+      this.completedState.querySelector('h2').focus();
     }
     else if(!isCardholderNameValid)
       this.cardholderNameInput.focus();
@@ -262,6 +264,8 @@ class FormCardInfo {
 
     this.form.hidden = false;
     this.completedState.hidden = true;
+
+    this.cardholderNameInput.focus()
   }
 }
 
