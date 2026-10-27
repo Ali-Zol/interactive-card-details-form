@@ -4,7 +4,7 @@
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XjuA83F4W). The goal was to build a responsive, accessible form with live card previews, robust validation, and a focus on Object-Oriented Programming (OOP) in Vanilla JavaScript.
+This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). The goal was to build a responsive, accessible form with live card previews, robust validation, and a focus on Object-Oriented Programming (OOP) in Vanilla JavaScript.
 
 ## Table of contents
 
